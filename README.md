@@ -1,101 +1,100 @@
-# 俄罗斯方块（命令行版）
+# Tetris (Command-Line Version)
 
 [![GCC](https://img.shields.io/badge/GCC-11.5.0-blue?style=flat-square)](https://gcc.gnu.org/)
 [![Windows](https://img.shields.io/badge/Windows-10%2F11-green?style=flat-square)](https://www.microsoft.com/windows/)
 [![C Standard](https://img.shields.io/badge/C-C99-orange?style=flat-square)](https://en.cppreference.com/w/c/99)
 
-命令行版本的经典俄罗斯方块游戏，使用纯C语言编写，在Windows控制台中运行。
+A command-line Tetris game written in plain C. It runs in the Windows console.
 
-## 项目简介
+## About
 
-本项目是一个功能完整的俄罗斯方块游戏，通过命令行界面实现。游戏采用增量绘制技术优化性能，只更新变化的区域，而非重绘整个屏幕。
+This is a complete Tetris implementation for the console. It uses incremental drawing: only changed cells are redrawn instead of the whole screen.
 
-## 功能特性
+## Features
 
-- **7种经典方块**：I、O、T、S、Z、L、J 共7种俄罗斯方块
-- **4种旋转状态**：每种方块支持4个方向的旋转
-- **计分系统**：
-  - 消除1行：100分
-  - 消除2行：300分
-  - 消除3行：500分
-  - 消除4行：800分
-- **等级系统**：每500分提升一个等级，速度逐渐加快
-- **下一个方块预览**：右侧面板显示下一个即将出现的方块
-- **游戏控制**：支持方向键和WASD双模式控制
-- **暂停功能**：支持随时暂停/继续游戏
+- **7 tetrominoes** — I, O, T, S, Z, L, J
+- **4 rotations per piece**
+- **Scoring**:
+  - 1 line: 100
+  - 2 lines: 300
+  - 3 lines: 500
+  - 4 lines: 800
+- **Levels** — one level every 500 points; speed increases as the level goes up
+- **Next piece preview** — shown in the right panel
+- **Two control schemes** — arrow keys or WASD
+- **Pause** — pause and resume at any time
 
-## 游戏配置
+## Configuration
 
-| 配置项       | 默认值 | 说明                 |
-| ------------ | ------ | -------------------- |
-| BOARD_WIDTH  | 15     | 游戏区域宽度（格）   |
-| BOARD_HEIGHT | 30     | 游戏区域高度（格）   |
-| BLOCK_SIZE   | 2      | 每格字符宽度         |
-| INIT_SPEED   | 300    | 初始下落间隔（毫秒） |
+| Setting | Default | Description |
+| ------------ | ------ | ------------------------ |
+| `BOARD_WIDTH` | 15 | Board width in cells |
+| `BOARD_HEIGHT` | 30 | Board height in cells |
+| `BLOCK_SIZE` | 2 | Character width per cell |
+| `INIT_SPEED` | 300 | Initial drop interval (ms) |
 
-## 操作说明
+## Controls
 
-### 移动控制
+### Movement
 
-| 按键  | 功能     |
+| Key | Action |
 | ----- | -------- |
-| ← / A | 左移     |
-| → / D | 右移     |
-| ↑ / W | 旋转     |
-| ↓ / S | 加速下落 |
+| ← / A | Move left |
+| → / D | Move right |
+| ↑ / W | Rotate |
+| ↓ / S | Soft drop |
 
-### 其他控制
+### Other
 
-| 按键   | 功能                   |
+| Key | Action |
 | ------ | ---------------------- |
-| 空格键 | 硬降（直接落底）       |
-| P      | 暂停/继续              |
-| X      | 退出游戏               |
-| R      | 重新开始（游戏结束后） |
+| Space | Hard drop |
+| P | Pause/resume |
+| X | Quit |
+| R | Restart (after game over) |
 
-## 编译与运行
+## Build and Run
 
-### 环境要求
+### Requirements
 
-- Windows 操作系统
-- GCC 编译器（或兼容的C编译器）
+- Windows
+- GCC (or a compatible C compiler)
 
-### 编译命令
+### Build
 
 ```bash
 gcc 俄罗斯方块（命令行版）.cpp -o 俄罗斯方块.exe
 ```
 
-### 运行
+### Run
 
 ```bash
 俄罗斯方块.exe
 ```
 
-## 技术实现
+## Implementation
 
-- **纯C语言**：无任何外部依赖库
-- **Windows API**：使用控制台API实现光标控制、颜色设置、窗口大小调整
-- **增量绘制**：采用高效的增量更新策略，只重绘变化的区域
-- **结构体封装**：使用Game结构体统一管理游戏状态
+- Plain C, no external libraries
+- Windows console APIs for cursor control, colors, and window size
+- Incremental drawing to avoid full redraws
+- A `Game` struct holds the game state
 
-## 依赖
+## Dependencies
 
-本项目使用的标准库头文件：
+Standard headers used:
 
-- `stdio.h` - 标准输入输出
-- `stdlib.h` - 标准库函数
-- `conio.h` - 控制台输入输出
-- `windows.h` - Windows API
-- `time.h` - 时间函数
-- `stdbool.h` - 布尔类型支持
+- `stdio.h` — input/output
+- `stdlib.h` — standard library
+- `conio.h` — console input/output
+- `windows.h` — Windows API
+- `time.h` — timing
+- `stdbool.h` — boolean type
 
 ---
 
-## 作者信息
+## Author
 
-**谙弆悕博士（Ailan Anjuxi）**
+**Dr. Ailan Anjuxi (谙弆悕)**
 
-- 邮箱：anjuxi.ME@outlook.com
-- SIP电话：sip:anjuxi@sip.linphone.org
-
+- Email: anjuxi.ME@outlook.com
+- SIP: sip:anjuxi@sip.linphone.org
